@@ -1,0 +1,14 @@
+#header {
+	color: khaki;
+	background: darkslategrey;
+	font-family: Courier New, Courier, monospace;
+	font-size: 18px;
+	border: 10px solid darkslategrey;
+}
+body {
+	background-image: 
+}
+.headerLink { 
+    text-decoration: none;
+    font-style: darkslategrey;
+} 
