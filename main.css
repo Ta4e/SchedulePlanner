@@ -19,6 +19,9 @@
 .footerLink {
 	text-decoration: none;
 }
+* {
+	font-family: Courier New, Courier, monospace;
+}
 header {
 	overflow: hidden;
     background:darkslategrey;
@@ -48,7 +51,7 @@ footer {
 h1 {
 	font-size: 45px;
 	height: auto; /* Высота блока */
-    width: 500px; /* Ширина блока */
+    width: auto; /* Ширина блока */
     padding-left: 15px; /* Отступ от текста слева */
     padding-top: 25px;
 	color: goldenrod;
