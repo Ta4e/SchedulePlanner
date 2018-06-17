@@ -2,6 +2,9 @@
 	font-family: JMH Arkham;
 	src: url(fonts/JMH Arkham.ttf);
 }
+#translate {
+	text-decoration: none
+}
 #upper {
 	height: auto; 
     width: 800px; 
@@ -12,7 +15,7 @@
 }
 #lang {
 	background-color: darkslategrey;
-	font-family: Courier New, Courier, monospace;
+	font-family: Verdana, Geneva, sans-serif;
 	font-size: 20px;
 	color: khaki;
 	border-color: darkslategrey;
@@ -29,7 +32,7 @@
 }
 * {
 	font-size: 20px;
-	font-family: Courier New, Courier, monospace;
+	font-family: Verdana, Geneva, sans-serif;
 }
 header {
 	overflow: hidden;
@@ -39,11 +42,8 @@ header {
     left: 0;
     width: 100%;
     text-align: center;
-    font-family: Courier New, Courier, monospace;
-	font-size: 20px;
 }
 body {
-	/*background-color:silver;*/
 	background-image: url(images/bodyImg.jpg);;
 }
 footer {
@@ -54,14 +54,12 @@ footer {
     text-align: center;
 	color: khaki;
 	background: darkslategrey;
-	font-family: Courier New, Courier, monospace;
-	font-size: 20px;
 }
 h1 {
 	font-size: 45px;
-	height: auto; /* Высота блока */
-    width: auto; /* Ширина блока */
-    padding-left: 15px; /* Отступ от текста слева */
+	height: auto;
+    width: auto; 
+    padding-left: 15px; 
     padding-top: 25px;
 	color: goldenrod;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -70,4 +68,7 @@ p {
 	color: lavenderblush;
 	font-size: 25px;
 }
-
+ul li {
+	color: lavenderblush;
+	font-size: 25px;
+}
