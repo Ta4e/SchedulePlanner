@@ -24,6 +24,9 @@
 	font-family: JMH Arkham;
 	font-size: 60px;	
 }
+#pName:hover {
+	color: khaki;
+}
 .headerLink { 
     text-decoration: none;
 } 
