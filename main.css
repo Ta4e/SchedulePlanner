@@ -27,6 +27,15 @@
 #pName:hover {
 	color: khaki;
 }
+#login {
+	/*text-decoration: none; it's for href*/
+	background: darkslategrey;
+	border-color: darkslategrey;
+	border: none;
+    font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	color: khaki; 
+}
 .headerLink { 
     text-decoration: none;
 } 
