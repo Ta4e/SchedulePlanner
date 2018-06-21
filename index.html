@@ -11,20 +11,19 @@
 <header>
 <script src="frontPage.js"></script>
 <div id="headerBox">
-	<a class="headerLink" href="index.html" style="color:goldenrod">Home</a>
-	<button id="login" name="loginButton">Login</button>
-	<!-- <a id="login" style="color:khaki">Login</a> -->
-	<a class="headerLink" href="userCab.html" style="color:khaki">Cabinet</a>
-	<a class="headerLink" href="crew.html" style="color:khaki">Crew</a>
-	<a class="headerLink" href="output.html" style="color:khaki">Outputs</a>
-	<select id="lang" name="language">
+	<button class="headerButtons" name="index">Home</button>
+	<button id="login" class="headerButtons" name="loginButton">Login</button>
+	<button class="headerButtons" name="cabinetButton">Cabinet</button>
+	<button class="headerButtons" name="crewButton">Crew</button>
+	<button class="headerButtons" name="outputsButton">Outputs</button>
+	<select class="headerButtons" name="language">
 		<option>Language</option>
 		<option>Ru</option>
 		<option>Eng</option>
 	</select>
 </div>
 </header>
-<h1 id="pName">QA Schedule planner</h1>
+<h1 id="pName">Schedule Reminder</h1>
 <div id="upper">
 	<p>
 		Feauters what must be done:
@@ -45,12 +44,15 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
+<div class="calCell">
+	<button class="calCell">11</button>	
+</div>
 </body>
 
 <footer>
 	<div>
-		<a class="footerLink" href="faq.html" style="color:khaki">F.A.Q.</a>
-		<a class="footerLink" href="privacy.html" style="color:khaki">Privacy</a>
+		<button class="footerLink" name="faq">F.A.Q.</button>
+		<button class="footerLink" name="privacy">Privacy</button>
 		<a class="footerLink" href="mailto:siberian.inc@gmail.com" title="Mail to developer" style="color:khaki">© 2018 Stanislav Smirnov</a>
 	</div>
 </footer>

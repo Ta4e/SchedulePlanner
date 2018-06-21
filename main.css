@@ -27,20 +27,42 @@
 #pName:hover {
 	color: khaki;
 }
-#login {
-	/*text-decoration: none; it's for href*/
+.headerButtons {
 	background: darkslategrey;
 	border-color: darkslategrey;
 	border: none;
     font-family: Verdana, Geneva, sans-serif;
 	font-size: 20px;
-	color: khaki; 	
+	color: khaki;
+	text-decoration: none; 	
 }
-.headerLink { 
-    text-decoration: none;
-} 
+.headerButtons:hover {
+	color: goldenrod;
+}
 .footerLink {
-	text-decoration: none;
+	background: darkslategrey;
+	border-color: darkslategrey;
+	border: none;
+    font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	color: khaki;
+	text-decoration: none; 	
+}
+.footerLink:hover {
+	color: goldenrod;
+}
+.calCell {
+	background-color: rgba(255,228,196,0.1);
+	font-family: JMH Arkham;
+	font-size: 50px;
+	color: goldenrod;
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	width: 70px;
+	height: 70px;
+	border-color: rgba(176,196,222,0.2);
+}
+.calCell:hover {
+	color: khaki;
 }
 * {
 	font-size: 20px;
@@ -56,7 +78,7 @@ header {
     text-align: center;
 }
 body {
-	background-image: url(images/bodyImg.jpg);;
+	background-image: url(images/bodyImg.jpg);
 }
 footer {
 	position: fixed;
