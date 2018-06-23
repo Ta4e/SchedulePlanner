@@ -27,6 +27,24 @@
 #pName:hover {
 	color: khaki;
 }
+#headerBox p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	color: khaki;
+	text-align: center;
+}
+#crewList {
+/*	height: auto;*/
+   width: 300px; background: #ECF5E4; border-right: 1px solid #231F20;
+   top: 60px; /* Расстояние от верхнего края */ 
+   left: 20px;
+   bottom: 0; /* Расстояние снизу  */
+/*    width: 800px; 
+    overflow: auto; 
+    padding-left: 15px;
+	background-color: rgba(255,235,205,0.3);
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;*/
+}
 .headerButtons {
 	background: darkslategrey;
 	border-color: darkslategrey;
