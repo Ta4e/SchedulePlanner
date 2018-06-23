@@ -7,8 +7,9 @@
 }
 #upper {
 	height: auto; 
-    width: 800px; 
-    overflow: auto; 
+    width: auto; 
+    overflow: auto;
+    float: left;
     padding-left: 15px;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -34,10 +35,9 @@
 	text-align: center;
 }
 #crewList {
-	position: absolute; 
-  	top: 80px; 
-  	left: 1600px;
-    padding: 10px;
+	width:auto;
+	height:auto;
+	float:right;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;*/
 }
@@ -53,6 +53,17 @@
 }
 #crewList p:hover {
 	color: goldenrod;
+}
+#callBox {
+	font-family: JMH Arkham;
+	float: left 20px;
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+#callBox thead {
+	font-size: 50px;
+	color: khaki;
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
 }
 .headerButtons {
 	background: darkslategrey;
@@ -90,13 +101,6 @@
 }
 .calCell:hover {
 	color: goldenrod;
-}
-.callBox thead {
-	font-family: JMH Arkham;
-	font-size: 50px;
-	color: khaki;
-	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-
 }
 * {
 	font-size: 20px;
