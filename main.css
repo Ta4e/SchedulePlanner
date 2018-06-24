@@ -51,6 +51,9 @@
 #crewList p:hover {
 	color: goldenrod;
 }
+#lang:hover {
+	color: goldenrod;
+}
 #callBox {
 	font-family: JMH Arkham;
 	float: left 20px;
