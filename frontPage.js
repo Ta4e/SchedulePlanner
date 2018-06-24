@@ -38,3 +38,4 @@ function logBox() {
 let logInBox = document.getElementById("login");
 logInBox.addEventListener("click", logBox);
 };
+//Crew objects
