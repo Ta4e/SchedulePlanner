@@ -1,3 +1,5 @@
+let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', 14);
+let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', 12);
 //LoginBox
 window.onload = function() {
 	let count = 0;
@@ -37,5 +39,33 @@ function logBox() {
 }
 let logInBox = document.getElementById("login");
 logInBox.addEventListener("click", logBox);
-};
+//Crew list mouseOver listener
+let elem1 = document.getElementById('u1'); 
+let getNum = document.getElementById("u1").value = "14";
+//Ajax starts here
+$('#u1').mouseover(function(){
+	$('.calCell:contains("14")').css('color', 'goldenrod');
+    // alert('work u1');
+});
+$('#u1').mouseout(function(){
+	$('.calCell').css('color', 'khaki');
+    // alert('work u1');
+});
+//Ajax over here
+}
+
+
+// elem1.addEventListener("mouseover", highlight);
+// 	function highlight() {
+// 		// document.getElementById("u1").value = "14".style.color="#00ff00";
+// 		alert(getNum);
+// 	}
 //Crew objects
+function user(name, midleName,secondName, login, password, day) {
+	this.name = name;
+	this.midleName = midleName;
+	this.secondName = secondName;
+	this.login = login;
+	this.password = password;
+	this.day = day;
+}

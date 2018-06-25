@@ -6,6 +6,7 @@
 	<title>ScheREM</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="shortcut icon" href="images/favS.png" type="image/x-icon">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -26,13 +27,13 @@
 <div id="crewList">
 	<h1>Crew List</h1>
 	<hr>
-	<p>Smirnov Stanislav</p>
-	<p>Eugenia Kozhukhova</p>
+	<p id="u1"><script>(document.write(user1.name[0]) + document.write(". ") + document.write(user1.midleName));</script></p>
+	<p id="u2"><script>(document.write(user2.name[0]) + document.write(". ") + document.write(user2.midleName));</script></p>
 </div>
 <h1 id="pName">Schedule Reminder: Home</h1>
 <div id="upper">
 	<p>
-		Feauters what must be done:
+		Features what must be done:
 		<ul>
 			<li>Calendar-multitool</li>
 			<li>Crew chatroom</li>
@@ -100,13 +101,14 @@
 	</tbody>
 </table>
 </div>
+
 </body>
 
 <footer>
 	<div>
 		<button class="footerLink" name="faq">F.A.Q.</button>
 		<button class="footerLink" name="privacy">Privacy</button>
-		<a class="footerLink" href="mailto:siberian.inc@gmail.com" title="Mail to developer" style="color:khaki">© 2018 Stanislav Smirnov</a>
+		<a class="footerLink" href="mailto:siberian.inc@gmail.com" title="Mail to developer" style="color:khaki">© 2018 Ta4e</a>
 	</div>
 </footer>
 </html>
