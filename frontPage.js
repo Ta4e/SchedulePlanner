@@ -1,5 +1,4 @@
-let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', '14');
-// user1.day = '11','5','16'; Make it array!
+let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin');
 let u1Day = ['11','5','16'];
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example');
 //LoginBox
@@ -43,22 +42,18 @@ let logInBox = document.getElementById("login");
 logInBox.addEventListener("click", logBox);
 //Ajax starts from here
 $('#u1').mouseover(function(){
-	$(getNum()).css('color', 'goldenrod');
+	$(getNum(u1Day.length)).css('color', 'goldenrod');
 });
 $('#u1').mouseout(function(){
 	$('.calCell').css('color', 'khaki');
 });
 //Ajax over here
 }
-function getNum() {
-	return '.calCell:contains(11)';
+function getNum(num) {
+	// alert(num);
+	answer =   '.calCell:contains' + '(11)';
+	return answer;
 }
-
-// elem1.addEventListener("mouseover", highlight);
-// 	function highlight() {
-// 		// document.getElementById("u1").value = "14".style.color="#00ff00";
-// 		alert(getNum);
-// 	}
 //Crew objects
 function user(name, midleName,secondName, login, password) {
 	this.name = name;
@@ -68,5 +63,4 @@ function user(name, midleName,secondName, login, password) {
 	this.password = password;
 	// this.day = day;
 }
-
 //removed day from objects and from function
