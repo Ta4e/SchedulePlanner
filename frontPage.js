@@ -51,8 +51,9 @@ $('#u1').mouseout(function(){
 }
 function getNum(num) {
 	// alert(num);
-	answer =   '.calCell:contains' + '(11)';
-	return answer;
+	// answer = '.calCell:contains' + '(11)';
+	// return answer;
+	return $('.calCell:contains('+ 11 +'), .calCell:contains('+ 14 +')');
 }
 //Crew objects
 function user(name, midleName,secondName, login, password) {
