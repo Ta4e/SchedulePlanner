@@ -1,5 +1,7 @@
-let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', 14);
-let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', 12);
+let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', '14');
+// user1.day = '11','5','16'; Make it array!
+let u1Day = ['11','5','16'];
+let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example');
 //LoginBox
 window.onload = function() {
 	let count = 0;
@@ -39,21 +41,18 @@ function logBox() {
 }
 let logInBox = document.getElementById("login");
 logInBox.addEventListener("click", logBox);
-//Crew list mouseOver listener
-let elem1 = document.getElementById('u1'); 
-let getNum = document.getElementById("u1").value = "14";
-//Ajax starts here
+//Ajax starts from here
 $('#u1').mouseover(function(){
-	$('.calCell:contains("14")').css('color', 'goldenrod');
-    // alert('work u1');
+	$(getNum()).css('color', 'goldenrod');
 });
 $('#u1').mouseout(function(){
 	$('.calCell').css('color', 'khaki');
-    // alert('work u1');
 });
 //Ajax over here
 }
-
+function getNum() {
+	return '.calCell:contains(11)';
+}
 
 // elem1.addEventListener("mouseover", highlight);
 // 	function highlight() {
@@ -61,11 +60,13 @@ $('#u1').mouseout(function(){
 // 		alert(getNum);
 // 	}
 //Crew objects
-function user(name, midleName,secondName, login, password, day) {
+function user(name, midleName,secondName, login, password) {
 	this.name = name;
 	this.midleName = midleName;
 	this.secondName = secondName;
 	this.login = login;
 	this.password = password;
-	this.day = day;
+	// this.day = day;
 }
+
+//removed day from objects and from function
