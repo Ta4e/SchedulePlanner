@@ -1,6 +1,11 @@
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin');
-let u1Day = ['11','5','16'];
+let u1Day = [11, 5, 16];
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example');
+let u2Day = [12, 6, 17];
+let sample = ({
+	'.calCell':'hover',
+	'color': 'goldenrod'
+})
 //LoginBox
 window.onload = function() {
 	let count = 0;
@@ -40,20 +45,29 @@ function logBox() {
 }
 let logInBox = document.getElementById("login");
 logInBox.addEventListener("click", logBox);
-//Ajax starts from here
+//Jquery starts from here
+//.calCell dynamic highlight START
 $('#u1').mouseover(function(){
 	$(getNum(u1Day.length)).css('color', 'goldenrod');
 });
 $('#u1').mouseout(function(){
 	$('.calCell').css('color', 'khaki');
-});
-//Ajax over here
+	getMagic();
+});				
+function getMagic() {
+	$('.calCell').hover(function(){
+		//:hover color
+  		$(this).css("color", 'goldenrod');
+	}, function () {
+  		//not :hover color
+  	$(this).css("color", 'khaki');
+	});
+}
+//.calCell dynamic highlight END
+//Jquery over here
 }
 function getNum(num) {
-	// alert(num);
-	// answer = '.calCell:contains' + '(11)';
-	// return answer;
-	return $('.calCell:contains('+ 11 +'), .calCell:contains('+ 14 +')');
+	return $('.calCell:contains('+ 5 +'), .calCell:contains('+ 14 +')');
 }
 //Crew objects
 function user(name, midleName,secondName, login, password) {
