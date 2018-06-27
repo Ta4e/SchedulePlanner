@@ -1,5 +1,5 @@
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin');
-let u1Day = [11, '05', 16];
+let u1Day = [11, 15, 16];
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example');
 let u2Day = [11, '06', 17];
 let sample = ({
@@ -48,7 +48,8 @@ logInBox.addEventListener("click", logBox);
 //Jquery starts from here
 //.calCell dynamic highlight START
 $('#u1').mouseover(function(){
-	$(getNum(u1Day.length)).css('color', 'goldenrod');
+	let $a = eval(getNum(u1Day.length));
+  	$a.css('color', 'goldenrod');
 });
 $('#u1').mouseout(function(){
 	$('.calCell').css('color', 'khaki');
@@ -67,24 +68,31 @@ function getMagic() {
 //Jquery over here
 }
 function getNum(num) {
-	// return $( "button[name~='05']");
-		let addLft = ("('.calCell:contains('+ ");
-		let addRght = (" +')");
-		let result = ("$");
+		let localCount = 0;
+		let pieceRght = (" +')");
+		let result = ("$('.calCell:contains('+ ");
 	for (let i = 0; i < num; i++) {
-		function localGetNum (i) {
-			if (i == (num - 1)) {
-				locCase = (addRght + ("');"));
-			} else {
-				locCase = (addRght + (","));	
+		localCount = i;
+			function localLft(numLft) {
+				if (numLft > 0) {
+					lft = (".calCell:contains('+ ");
+				} else {
+					lft = "";
+				}
+				return lft;
 			}
-			return locCase;
-		}
-		result += (addLft + i + localGetNum(i));
+			function localRght (numRght) {
+				if (numRght == (num - 1)) {
+					rght = (pieceRght + ("');"));
+				} else {
+					rght = (pieceRght + (","));	
+				}
+				return rght;
+			}
+		result += (localLft(i) + u1Day[i] + localRght(i));
 	}
-		return result;
-	 // return $('.calCell:contains('+ u1Day[1] +'), .calCell:contains('+ 25 +')');
-	 $('.calCell:contains('+ 0+ '),('.calCell:contains('+ 1+ '),('.calCell:contains('+ 2+ ')');
+return result;
+	// $('.calCell:contains('+ 11 +'),.calCell:contains('+ 15 +'),.calCell:contains('+ 16 +')'); //Try this to look at correct value
 }
 //Crew objects
 function user(name, midleName,secondName, login, password) {
