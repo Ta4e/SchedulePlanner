@@ -1,7 +1,7 @@
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin');
-let u1Day = [11, 5, 16];
+let u1Day = [11, '05', 16];
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example');
-let u2Day = [12, 6, 17];
+let u2Day = [11, '06', 17];
 let sample = ({
 	'.calCell':'hover',
 	'color': 'goldenrod'
@@ -67,7 +67,24 @@ function getMagic() {
 //Jquery over here
 }
 function getNum(num) {
-	return $('.calCell:contains('+ 5 +'), .calCell:contains('+ 14 +')');
+	// return $( "button[name~='05']");
+		let addLft = ("('.calCell:contains('+ ");
+		let addRght = (" +')");
+		let result = ("$");
+	for (let i = 0; i < num; i++) {
+		function localGetNum (i) {
+			if (i == (num - 1)) {
+				locCase = (addRght + ("');"));
+			} else {
+				locCase = (addRght + (","));	
+			}
+			return locCase;
+		}
+		result += (addLft + this[i] + localGetNum(i));
+	}
+		return result;
+	 // return $('.calCell:contains('+ u1Day[1] +'), .calCell:contains('+ 25 +')');
+	 // $('.calCell:contains('+ 0+ '),('.calCell:contains('+ 1+ '),('.calCell:contains('+ 2+ ')');
 }
 //Crew objects
 function user(name, midleName,secondName, login, password) {
