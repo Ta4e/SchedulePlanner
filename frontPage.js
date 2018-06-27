@@ -80,11 +80,11 @@ function getNum(num) {
 			}
 			return locCase;
 		}
-		result += (addLft + this[i] + localGetNum(i));
+		result += (addLft + i + localGetNum(i));
 	}
 		return result;
 	 // return $('.calCell:contains('+ u1Day[1] +'), .calCell:contains('+ 25 +')');
-	 // $('.calCell:contains('+ 0+ '),('.calCell:contains('+ 1+ '),('.calCell:contains('+ 2+ ')');
+	 $('.calCell:contains('+ 0+ '),('.calCell:contains('+ 1+ '),('.calCell:contains('+ 2+ ')');
 }
 //Crew objects
 function user(name, midleName,secondName, login, password) {
