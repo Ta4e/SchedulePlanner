@@ -102,10 +102,24 @@ window.onload = function() {
 //LoginBox END
 /**/
 //.calCell dynamic highlight START
+/*
+Experimental procedure for every users
+*/
+function userIdConstructor(picked) {
+	let userIdConstructorResult = ("'#" + picked + "'");
+	return userIdConstructorResult;
+}	
+$('.users').mouseenter(function(){
+  	let uIdFinder = this.id;
+  	alert(userIdConstructor(uIdFinder));
+});
+	//Experimental procedure END
+	/* //Normal procedure for single user
 	$('#u1').mouseover(function(){
 		let $a = eval(getNum(u1Day.length));
 	  	$a.css('color', 'goldenrod');
 	});
+	*/
 	$('#u1').mouseout(function(){
 		$('.calCell').css('color', 'khaki');
 		getMagic();
