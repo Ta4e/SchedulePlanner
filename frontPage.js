@@ -111,6 +111,16 @@ There can be a code, but sompthing going wrong!!
 /*
 Experimental procedure for every users
 */
+	function getParse(uId) {
+		let result = parseInt(uId);
+		return result;
+	} 
+
+	$('.users').mouseenter(function(){
+	  	let uIdFinder = this.id;
+	  	alert(getParse(uIdFinder));
+	});
+/*
 	function userIdConstructor(picked) {
 		let userIdConstructorResult = ("'#" + picked + "'");
 		return userIdConstructorResult;
@@ -120,6 +130,7 @@ Experimental procedure for every users
 	  	alert(userIdConstructor(uIdFinder));
 	});
 //Function work well!!
+*/
 	//Experimental procedure END
 	/* //Normal procedure for single user
 	$('#u1').mouseover(function(){
