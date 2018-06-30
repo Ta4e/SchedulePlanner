@@ -4,6 +4,7 @@ let u1Day = ['01', '03', 11, '07', 16];
 let u2Day = [11, '06', 17];
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
+let user2 = new user('Test', 'Test');
 function dayArr(usable) {
 	day = usable;
 return day;
@@ -21,9 +22,11 @@ function user(name, midleName,secondName, login, password, day) {
 //CrewList adder START
 function crewListAdder {
 	let crewMemberConstructorId = this.id;
-	
+	crewMemberConstructorId = parseInt(crewMemberConstructorId);
+	alert(crewMemberConstructorId);
+
 }
-document.write(user2.name[0]) + document.write(". ") + document.write(user2.midleName);
+//document.write(user2.name[0]) + document.write(". ") + document.write(user2.midleName);
 //CrewList adder END
 /**/
 //Onload scripts START
