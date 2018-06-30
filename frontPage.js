@@ -18,6 +18,14 @@ function user(name, midleName,secondName, login, password, day) {
 }
 //Users operators END
 /**/
+//CrewList adder START
+function crewListAdder {
+	let crewMemberConstructorId = this.id;
+	
+}
+document.write(user2.name[0]) + document.write(". ") + document.write(user2.midleName);
+//CrewList adder END
+/**/
 //Onload scripts START
 window.onload = function() {
 /**/
