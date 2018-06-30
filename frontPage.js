@@ -4,7 +4,7 @@ let u1Day = ['01', '03', 11, '07', 16];
 let u2Day = [11, '06', 17];
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
-let user2 = new user('Test', 'Test');
+let user3 = new user('Test', 'Test');
 function dayArr(usable) {
 	day = usable;
 return day;
