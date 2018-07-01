@@ -1,7 +1,8 @@
 //User operators START
 //console.log(getNum(u1Day.length));
-let u1Day = ['01', '03', 11, '07', 16];
-let u2Day = [11, '06', 17];
+let u1Day = ['01', 11, 14, 16];
+let u2Day = ['02', 11, 17];
+let u3Day = [20];
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
 let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example');
@@ -109,16 +110,30 @@ There can be a code, but sompthing going wrong!!
 /**/
 //.calCell dynamic highlight START
 /*
-Experimental procedure for every users
+Experimental procedure for each user
 */
-	function getParse(uId) {
-		let result = parseInt(uId);
-		return result;
-	} 
 
 	$('.users').mouseenter(function(){
 	  	let uIdFinder = this.id;
-	  	alert(getParse(uIdFinder));
+	  	let userNum = (getParse(uIdFinder));
+	  		function getParse(uId) {
+				let result = 0;
+					for (let i = 0; i < uId.length; i++) {
+						let temporaryGetParseCharAt = uId.charAt(i);
+							if (isNaN(temporaryGetParseCharAt) === false) {
+								result = temporaryGetParseCharAt;
+							}
+					}
+			return result;
+			} 
+			function uDayNumberConstructor(num) {
+				let interimRes = ("u" + num + "Day");
+				let results = eval(interimRes);
+				return results;
+			}
+		let interrimResForGetNum = eval(uDayNumberConstructor(userNum));
+		let $calCellHighLight = eval(getNum(interrimResForGetNum));
+	  	$calCellHighLight.css('color', 'goldenrod');	
 	});
 /*
 	function userIdConstructor(picked) {
@@ -157,7 +172,8 @@ Experimental procedure for every users
 //Onload scripts END
 /**/
 //Function for dynamicH Highlight START
-function getNum(num) {
+function getNum(uArr) {
+let num = uArr.length;
 let localCount = 0;
 let pieceRght = (" +')");
 let result = ("$('.calCell:contains('+ ");
@@ -211,7 +227,8 @@ let result = ("$('.calCell:contains('+ ");
 			}
 			return number;
 		}
-		result += (localLft(i) + localZeroFinder(u1Day[i]) + localRght(i));
+
+		result += (localLft(i) + localZeroFinder(uArr[i]) + localRght(i));
 	}
 return result;
 }
