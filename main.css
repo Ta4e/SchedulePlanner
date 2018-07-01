@@ -13,6 +13,8 @@
     padding-left: 15px;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	color: lavenderblush;
+	font-size: 25px;
 }
 #lang {
 	background-color: darkslategrey;
@@ -64,6 +66,15 @@
 	color: khaki;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 
+}
+.rem {
+	margin-left: 5px;
+	background-color: rgba(255,228,196,0.6);
+	color: indianred;
+	font-family: JMH Arkham;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;	
 }
 .headerButtons {
 	background: darkslategrey;

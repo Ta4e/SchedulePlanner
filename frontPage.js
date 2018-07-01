@@ -168,6 +168,22 @@ Experimental procedure for each user
 	}
 //.calCell dynamic highlight END
 /**/
+//From SL START
+$(function() {
+	$("#add").on("click", function() {
+		let val = $("input").val();
+		if (val !== '') {
+			let elem = $("<li></li>").text(val);
+			$(elem).append("<button class='rem'>X</button>");
+			$("#newList").append(elem);
+			$("input").val("");
+			$(".rem").on("click", function() {
+				$(this).parent().remove();
+			});
+		}
+	});
+});
+//From SL END
 }
 //Onload scripts END
 /**/
