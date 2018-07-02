@@ -1,5 +1,4 @@
 //User operators START
-//console.log(getNum(u1Day.length));
 let u1Day = ['01', 11, 14, 16];
 let u2Day = ['02', 11, 17];
 let u3Day = [20];
@@ -18,6 +17,20 @@ function user(name, midleName,secondName, login, password, day) {
 	this.password = password;
 	this.day = day;
 }
+//Logic for .CalCell constructor STAR
+	Date.prototype.getDays = function () {
+	   	let check = new Date(this.getTime());
+	    check.setDate(32);
+	return 32 - check.getDate();
+	};
+
+//Debug getDays
+	$(function() {
+			$("#outputs").on("click", function() {
+				alert(new Date().getDays());
+			});
+	});
+//Logic for .CalCell constructor END
 //Users operators END
 /**/
 //Onload scripts START
@@ -29,42 +42,18 @@ There can be a code, but sompthing going wrong!!
 //CrewList adder END
 /**/
 //.show and .hide START
-	let crewListCount = 0;
-	$('#crewListHead').click(function() {
-		if (crewListCount == 0) {
-			crewListCount++;
-			$("#crewListPersona").hide(300);
-		} else {
-			crewListCount--;
-			$("#crewListPersona").show(300);
-		}
-	});
-		let upperCount = 0;
+$("#crewListHead").click(function() {
+	$("#crewListPersona").fadeToggle(600)
+});
+	let upperCount = 0;
 	$('#pName').click(function() {
-	if (upperCount == 0) {
-		upperCount++;
-		$("#upper").hide(300);
-	} else {
-		upperCount--;
-		$("#upper").show(300);
-	}
-/*
-	$('#crewListPersona').animate({
-	    'backgroundColor' : $(this).css('background-color'),
-	    'height' : $(this).css('height'),
-	    'width' : $(this).css('width'),
-	    'border-radius' : $(this).css('border-radius'),
-	    'border-left-width' : $(this).css('border-left-width'),
-	    'border-right-width' : $(this).css('border-right-width'),
-	    'border-bottom-width' : $(this).css('border-bottom-width'),
-	    'border-left-style' : $(this).css('border-left-style'),
-	    'border-right-style' : $(this).css('border-right-style'),
-	    'border-bottom-style' : $(this).css('border-bottom-style'),
-	    'border-left-color' : $(this).css('border-left-color'),
-	    'border-right-color' : $(this).css('border-right-color'),
-	    'border-bottom-color' : $(this).css('border-bottom-color')
-	}, 2000)
-*/
+		if (upperCount == 0) {
+			upperCount++;
+			$("#upper").hide(300);
+		} else {
+			upperCount--;
+			$("#upper").show(300);
+		}
 	});
 //.show and .hide END
 /**/
@@ -109,10 +98,6 @@ There can be a code, but sompthing going wrong!!
 //LoginBox END
 /**/
 //.calCell dynamic highlight START
-/*
-Experimental procedure for each user
-*/
-
 	$('.users').mouseenter(function(){
 	  	let uIdFinder = this.id;
 	  	let userNum = (getParse(uIdFinder));
@@ -135,29 +120,11 @@ Experimental procedure for each user
 		let $calCellHighLight = eval(getNum(interrimResForGetNum));
 	  	$calCellHighLight.css('color', 'goldenrod');	
 	});
-/*
-	function userIdConstructor(picked) {
-		let userIdConstructorResult = ("'#" + picked + "'");
-		return userIdConstructorResult;
-	}	
-	$('.users').mouseenter(function(){
-	  	let uIdFinder = this.id;
-	  	alert(userIdConstructor(uIdFinder));
-	});
-//Function work well!!
-*/
-	//Experimental procedure END
-	/* //Normal procedure for single user
-	$('#u1').mouseover(function(){
-		let $a = eval(getNum(u1Day.length));
-	  	$a.css('color', 'goldenrod');
-	});
-	*/
-	$('#u1').mouseout(function(){
+	$('.users').mouseout(function(){
 		$('.calCell').css('color', 'khaki');
-		getMagic();
+		removeHighLightFromCell();
 	});				
-	function getMagic() {
+	function removeHighLightFromCell() {
 		$('.calCell').hover(function(){
 			//:hover color
 	  		$(this).css("color", 'goldenrod');
@@ -169,84 +136,101 @@ Experimental procedure for each user
 //.calCell dynamic highlight END
 /**/
 //From SL START
-$(function() {
-	$("#add").on("click", function() {
-		let val = $("input").val();
-		if (val !== '') {
-			let elem = $("<li></li>").text(val);
-			$(elem).append("<button class='rem'>X</button>");
-			$("#newList").append(elem);
-			$("input").val("");
-			$(".rem").on("click", function() {
-				$(this).parent().remove();
-			});
-		}
+	$(function() {
+		$("#add").on("click", function() {
+			let val = $("input").val();
+			if (val !== '') {
+				let elem = $("<li></li>").text(val);
+				$(elem).append("<button class='rem'>X</button>");
+				$("#newList").append(elem);
+				$("input").val("");
+				$(".rem").on("click", function() {
+					$(this).parent().remove();
+				});
+			}
+		});
 	});
-});
 //From SL END
-}
 //Onload scripts END
 /**/
 //Function for dynamicH Highlight START
-function getNum(uArr) {
-let num = uArr.length;
-let localCount = 0;
-let pieceRght = (" +')");
-let result = ("$('.calCell:contains('+ ");
-	for (let i = 0; i < num; i++) {
-		localCount = i;
-		function localLft(numLft) {
-			if (numLft > 0) {
-				lft = (".calCell:contains('+ ");
-			} else {
-				lft = "";
+	function getNum(uArr) {
+	let num = uArr.length;
+	let localCount = 0;
+	let pieceRght = (" +')");
+	let result = ("$('.calCell:contains('+ ");
+		for (let i = 0; i < num; i++) {
+			localCount = i;
+			function localLft(numLft) {
+				if (numLft > 0) {
+					lft = (".calCell:contains('+ ");
+				} else {
+					lft = "";
+				}
+				return lft;
 			}
-			return lft;
-		}
-		function localRght (numRght) {
-			if (numRght == (num - 1)) {
-				rght = (pieceRght + ("');"));
-			} else {
-				rght = (pieceRght + (","));	
+			function localRght (numRght) {
+				if (numRght == (num - 1)) {
+					rght = (pieceRght + ("');"));
+				} else {
+					rght = (pieceRght + (","));	
+				}
+				return rght;
 			}
-			return rght;
-		}
-		function localZeroFinder(number) {
-			switch (number) {
-				case '01':
-					return "'01'";
-				break;
-				case '02':
-					return "'02'";
-				break;
-				case '03':
-					return "'03'";
-				break;
-				case '04':
-					return "'04'";
-				break;
-				case '05':
-					return "'05'";
-				break;
-				case '06':
-					return "'06'";
-				break;
-				case '07':
-					return "'07'";
-				break;
-				case '08':
-					return "'08'";
-				break;
-				case '09':
-					return "'09'";
-				break;
+			function localZeroFinder(number) {
+				switch (number) {
+					case '01':
+						return "'01'";
+					break;
+					case '02':
+						return "'02'";
+					break;
+					case '03':
+						return "'03'";
+					break;
+					case '04':
+						return "'04'";
+					break;
+					case '05':
+						return "'05'";
+					break;
+					case '06':
+						return "'06'";
+					break;
+					case '07':
+						return "'07'";
+					break;
+					case '08':
+						return "'08'";
+					break;
+					case '09':
+						return "'09'";
+					break;
+				}
+				return number;
 			}
-			return number;
+	
+			result += (localLft(i) + localZeroFinder(uArr[i]) + localRght(i));
 		}
-
-		result += (localLft(i) + localZeroFinder(uArr[i]) + localRght(i));
+	return result;
 	}
-return result;
 }
 //Function for dynamicH Highlight END
 /**/
+//Experimetal dynamic calCell
+//	for (let i = 1; i < (new Date().getDays()); i++) { //is good for you
+	$(function() {
+// 		let div = $("<table border = '2'><thead><th id='thDay1'>Mon</th></thead></table>").append("<tbody><tr><td><button class='calCell'>11</button></td></tr></tbody>");
+// $("#callBox").append(div);
+	let table = $("<table></table>").attr('id', 'calCellTab');
+	let thead = $("<thead></thead>").attr('id', 'calCellTabHead');
+	let tbody = $("<tbody></tbody>").attr('id', 'calCellTabBody');
+		for (let i = 0; i < 7; i++) {
+//MAKE SOME CODE HEREE!!!!!
+		} 
+		for (let i = 0; i < 2; i++) {
+    		let tbodyIns = $('<td></td>').addClass('bar').append("<button class='calCell'>11</button>");
+    		table.append(tbodyIns);
+		}
+		$('#callBox').append(table);
+	});

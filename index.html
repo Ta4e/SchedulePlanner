@@ -7,6 +7,17 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="shortcut icon" href="images/favS.png" type="image/x-icon">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Date script -->
+	<script language="javascript" type="text/javascript">
+		let d = new Date();
+		let day = ["Sunday","Monday","Tuesday",
+		"Wednesday","Thursday","Friday","Saturday"];
+		let month = ["January","February","March","April","May","June",
+		"July","August","September","Octember","November","December"];
+		let date = d.getDate() + " " + month[d.getMonth()]
+		+ " " + d.getFullYear();
+	</script>
+
 </head>
 <body>
 <header>
@@ -33,7 +44,13 @@
 	<p id="u3" class="users"><script>(document.write(user3.name[0]) + document.write(". ") + document.write(user3.midleName));</script></p>
 	</div>
 </div>
-<h1 id="pName">Schedule Reminder: Home</h1>
+<h1 id="pName">Schedule Reminder:
+	
+	<script>
+		document.write(date); 
+	</script>
+	
+</h1>
 <div id="upper">
 	<p>
 		Features what must be done:
@@ -54,6 +71,21 @@
 	</div>
 </div>
 <div id="callBox">
+<!-- <table border = '2'>
+	<thead>
+		<th id="thDay1">Mon</th>
+		<th id="thDay2">Tue</th>
+		<th id="thDay3">Wed</th>
+		<th id="thDay4">Thu</th>
+		<th id="thDay5">Fri</th>
+		<th id="thDay6">Sat</th>
+		<th id="thDay7">Sun</th>
+	</thead>
+	<tbody>
+	</tbody>
+</table>	 -->	
+</div>
+<!-- <div id="callBox">
 <table border = '2'>
 	<thead>
 		<th>Mon</th>
@@ -108,8 +140,7 @@
 		</tr>
 	</tbody>
 </table>
-</div>
-
+</div> -->
 </body>
 
 <footer>
