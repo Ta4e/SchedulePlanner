@@ -217,20 +217,50 @@ $("#crewListHead").click(function() {
 }
 //Function for dynamicH Highlight END
 /**/
-//Experimetal dynamic calCell
-//	for (let i = 1; i < (new Date().getDays()); i++) { //is good for you
+//Dynamic calCell add START
 	$(function() {
-// 		let div = $("<table border = '2'><thead><th id='thDay1'>Mon</th></thead></table>").append("<tbody><tr><td><button class='calCell'>11</button></td></tr></tbody>");
-// $("#callBox").append(div);
-	let table = $("<table></table>").attr('id', 'calCellTab');
+	let wCount = 1;
+	let table = $("<table border ='2'></table>").attr('id', 'calCellTab');
 	let thead = $("<thead></thead>").attr('id', 'calCellTabHead');
 	let tbody = $("<tbody></tbody>").attr('id', 'calCellTabBody');
+	let trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"");
+	let wDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+	$('#callBox').append(table);
+	$("#calCellTab").append(thead);
+	$("#calCellTab").append(tbody);
 		for (let i = 0; i < 7; i++) {
-//MAKE SOME CODE HEREE!!!!!
+			let day = wDay[i];
+			let tHeadIns = $("<th></th>").addClass("tHead").text(day);
+			$(calCellTabHead).append(tHeadIns);
 		} 
-		for (let i = 0; i < 2; i++) {
-    		let tbodyIns = $('<td></td>').addClass('bar').append("<button class='calCell'>11</button>");
-    		table.append(tbodyIns);
-		}
-		$('#callBox').append(table);
+		for (let i = 0; i < (new Date().getDays()); i++) {
+			$(calCellTabBody).append(trBody);
+			if (wDay[i]  != "Sunday") {
+				if (i < 9) {
+					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
+					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+				} else {
+					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (i + 1) +"</button>");
+					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+				}
+			}
+    		if (wDay[i]  == "Sunday") {
+    			if (i < 9) {
+    				let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
+    				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+    				$(calCellTabBody).append(trBody);
+    			} else {
+    				let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (i + 1) +"</button>");
+    				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+    				$(calCellTabBody).append(trBody);
+    			}
+    			wCount++;
+    			trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"")
+    		}
+		} 	
 	});
+//Dynamic calCell add END
