@@ -224,11 +224,11 @@ $("#crewListHead").click(function() {
 	let thead = $("<thead></thead>").attr('id', 'calCellTabHead');
 	let tbody = $("<tbody></tbody>").attr('id', 'calCellTabBody');
 	let trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"");
-	let wDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-	"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+	let wDay = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+				"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+				"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+				"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+				"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",];
 	$('#callBox').append(table);
 	$("#calCellTab").append(thead);
 	$("#calCellTab").append(tbody);
@@ -239,7 +239,7 @@ $("#crewListHead").click(function() {
 		} 
 		for (let i = 0; i < (new Date().getDays()); i++) {
 			$(calCellTabBody).append(trBody);
-			if (wDay[i]  != "Sunday") {
+			if (wDay[i]  != "Sun") {
 				if (i < 9) {
 					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
 					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
@@ -248,7 +248,7 @@ $("#crewListHead").click(function() {
 					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 				}
 			}
-    		if (wDay[i]  == "Sunday") {
+    		if (wDay[i]  == "Sun") {
     			if (i < 9) {
     				let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
     				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
