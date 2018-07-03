@@ -113,6 +113,18 @@
 .calCell:hover {
 	color: goldenrod;
 }
+.calCellDis {
+	background-color: rgba(255,228,196,0.1);
+	font-family: JMH Arkham;
+	font-size: 50px;
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	width: 70px;
+	height: 70px;
+	border-color: rgba(176,196,222,0.2);
+}
+.calCellDis:disabled {
+	color: silver;
+}
 * {
 	font-size: 20px;
 	font-family: Verdana, Geneva, sans-serif;
@@ -128,6 +140,7 @@ header {
 }
 body {
 	background-image: url(images/bodyImg.jpg);
+ 	background-size: cover;
 }
 footer {
 	position: fixed;

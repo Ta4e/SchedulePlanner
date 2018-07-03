@@ -23,11 +23,16 @@ function user(name, midleName,secondName, login, password, day) {
 	    check.setDate(32);
 	return 32 - check.getDate();
 	};
-
-//Debug getDays
+	function getWeekDay(date) {
+	    let nDays = (date.getDate() - 1);
+	    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	    let day = date.getDay();
+	    return nDays - day;
+	}
 	$(function() {
 			$("#outputs").on("click", function() {
-				alert(new Date().getDays());
+				let date = new Date();
+				alert(getWeekDay(date));
 			});
 	});
 //Logic for .CalCell constructor END
@@ -236,8 +241,41 @@ $("#crewListHead").click(function() {
 			let day = wDay[i];
 			let tHeadIns = $("<th></th>").addClass("tHead").text(day);
 			$(calCellTabHead).append(tHeadIns);
-		} 
+		}
+		function emptyDays() {
+			let switchVal = getWeekDay(date);
+			if (switchVal == 0) {
+				switchVal = 7;
+			}
+			return switchVal
+		}
+		function getWeekDays(date) {
+	    	let nDays = date.getDate();
+	    	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	    	let day = date.getDay();
+	    return days[nDays - day];
+		}
+		let date = new Date();
+		let firstDay = emptyDays(); 
+		// for (let i = 0; i < firstDay; i++ ) {
+		// 	$(calCellTabBody).append(trBody);
+		// 	if (wDay[i] != "Sun") {
+		// 			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>D</button>");
+		// 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+		// 	}
+  //   		if (wDay[i]  == "Sun" && getWeekDay(date - 1) != "Sun") {
+  //   				let tbodyIns = $('<td></td>').append("<button class='calCellDis'>D</button>");
+  //   				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+  //   				$(calCellTabBody).append(trBody);
+  //   			wCount++;
+  //   			trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"")
+  //   		}
+  //   		else if (wDay[i]  == "Sun" && getWeekDay(date - 1) == "Sun") {
+  //   			alert('It work!');
+  //   		}
+		// }
 		for (let i = 0; i < (new Date().getDays()); i++) {
+			// if (new Date().getDay() != )
 			$(calCellTabBody).append(trBody);
 			if (wDay[i]  != "Sun") {
 				if (i < 9) {

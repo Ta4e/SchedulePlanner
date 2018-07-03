@@ -10,8 +10,6 @@
 	<!-- Date script -->
 	<script language="javascript" type="text/javascript">
 		let d = new Date();
-		let day = ["Sunday","Monday","Tuesday",
-		"Wednesday","Thursday","Friday","Saturday"];
 		let month = ["January","February","March","April","May","June",
 		"July","August","September","Octember","November","December"];
 		let date = d.getDate() + " " + month[d.getMonth()]
@@ -45,11 +43,9 @@
 	</div>
 </div>
 <h1 id="pName">Schedule Reminder:
-	
 	<script>
 		document.write(date); 
 	</script>
-	
 </h1>
 <div id="upper">
 	<p>
@@ -59,7 +55,8 @@
 			<li>Crew chatroom</li>
 			<li>Crew list</li>
 			<li>Event reminder</li>
-		</ul>	
+		</ul>
+		<button class='calCellDis' disabled="disabled">T</button>	
 	</p>
 	<hr>
 	<p>
