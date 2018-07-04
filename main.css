@@ -61,7 +61,7 @@
 	float: left 20px;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 }
-#callBox thead {
+#callBox thead {	
 	font-size: 50px;
 	color: khaki;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -122,9 +122,6 @@
 	width: 70px;
 	height: 70px;
 	border-color: rgba(176,196,222,0.2);
-}
-.calCellDis:disabled {
-	color: silver;
 }
 * {
 	font-size: 20px;
