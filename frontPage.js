@@ -257,9 +257,14 @@ $(function() {
 		let thead = $("<thead></thead>").attr('id', 'calCellTabHead');
 		let tbody = $("<tbody></tbody>").attr('id', 'calCellTabBody');
 			let trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"");
+	function getTr() {
+		trBody = $("<tr></tr>").attr("id", "calCellTabTrBody"+ wCount +"");
+		return trBody;
+	}
 	$('#callBox').append(table);
 	$("#calCellTab").append(thead);
 	$("#calCellTab").append(tbody);
+	$("#calCellTabBody").append(trBody);
 	for (let i = 0; i < 7; i++) {
 		let day = wDay[i];
 		let tHeadIns = $("<th></th>").attr("id", "wdHead"+ i +"").text(switchWday(day));
@@ -272,23 +277,64 @@ $(function() {
 		result = Math.abs(result);
 		return result;
 	}
+	function inFirstRow() {
+			let result = (7 - beforeDays());
+			return result;
+	}
 //do disabled cells
-	if (wDay[getWeekDay(date)] != "Mon") {
-		$(calCellTabBody).append(trBody);
+		$("#calCellTabBody").append(getTr());
 		for (let i = 0; i < beforeDays(); i++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>31</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+		}	
+		for (let z = 0; z < inFirstRow(); z++) {
+			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
+			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+			wCount = (wCount + 1);
 		}
-		wCount++;
-	}
 //do disabled cells END
+//do calCell START
+	let icoun = inFirstRow();
+	for (let i = 0; i < (new Date().getDays() - inFirstRow()); i++) {
+		function getCurDay(x) {
+			let counter = (x + 1);
+			if (counter < 10) {
+				counter = ("0" + counter);
+			return counter;
+			} else {
+				return counter;
+			}
+		}	
+		$("#calCellTabBody").append(getTr());
+		let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (getCurDay(i + inFirstRow())) +"</button>");
+		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 
-	for (let i = 0; i < new Date().getDays(); i++) {
-		let icoun = i;
-		$("#calCellTabTrBody"+ wCount +"").append(trBody);
-		if (icoun > 7 && icoun % 7) {
-			icoun = 0;
+
+		function icounResult(counter) { //function results is how many week (with append) in this month
+			let icounRes = [1, 2, 3, 4, 5];
+			for (let z = 0; z < icounRes.length; z++) {
+				if ((counter / 7) == icounRes[z]) {
+					return true;
+				}
+			}
 		}
+		if ((icoun + 1) >= 7 && icounResult(icoun) == true) {
+			
+			alert('icoun work');
+			wCount++;
+		}
+		icoun++;
+	}
+});
+
+
+
+
+/*
+*****GRAVE YARD*****
+*******OF GOOD******
+********IDEAS*******
+*********RIP********
 			if (wDay[icoun]  != "Sun") {
 				if (icoun < 8) {
 					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
@@ -310,15 +356,6 @@ $(function() {
     			}
 		wCount++;
 		}
-	}
-});
 
 
-
-
-/*
-*****GRAVE YARD*****
-*******OF GOOD******
-********IDEAS*******
-*********RIP********
 */
