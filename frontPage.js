@@ -272,10 +272,16 @@ $(function() {
 	}
 	let date = new Date();
 	function beforeDays() {
-		let result = getWeekDay(date);
-		result -= 6;
-		result = Math.abs(result);
-		return result;
+		if (getWeekDay(date) == 0) {
+			let result = getWeekDay(date);
+			result -= 6;
+			result = Math.abs(result);
+			return result;
+		} 
+		if (getWeekDay(date) > 0) {
+			let result = (getWeekDay(date) - 1);
+			return result;
+		} 
 	}
 	function inFirstRow() {
 			let result = (7 - beforeDays());
@@ -283,9 +289,14 @@ $(function() {
 	}
 //do disabled cells
 		$("#calCellTabBody").append(getTr());
+			let w = new Date;
+			w.setDate(0);
+			let x = w.getDate();
+			x = (x - (beforeDays() - inFirstRow()));
 		for (let i = 0; i < beforeDays(); i++) {
-			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>31</button>");
+			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ x +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+			x++;
 		}	
 		for (let z = 0; z < inFirstRow(); z++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
@@ -308,10 +319,8 @@ $(function() {
 		$("#calCellTabBody").append(getTr());
 		let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (getCurDay(i + inFirstRow())) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-
-
 		function icounResult(counter) { //function results is how many week (with append) in this month
-			let icounRes = [1, 2, 3, 4, 5];
+			let icounRes = [1, 2, 3, 4, 5, 6];
 			for (let z = 0; z < icounRes.length; z++) {
 				if ((counter / 7) == icounRes[z]) {
 					return true;
@@ -319,12 +328,31 @@ $(function() {
 			}
 		}
 		if ((icoun + 1) >= 7 && icounResult(icoun) == true) {
-			
 			alert('icoun work');
 			wCount++;
 		}
 		icoun++;
 	}
+//do calCell END
+/*
+when addCells is end, in results appers many empty <tr>
+it will bee perfect, if I can find bug in cicle
+function at the botton is a temporary solution, I hope...
+*/
+//temporary solution START
+	$("tr").each(function () { 
+    if ($.trim($(this).text()) == "") {
+       $(this).remove();
+    }
+});
+//temporary solution END
+//disabled cells for bottom START
+
+
+let dis = ($("#calCellTabBody").find("tr").length * 7);
+alert(dis);
+
+//disabled cells for bottom END
 });
 
 
