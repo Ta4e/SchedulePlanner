@@ -127,10 +127,10 @@ $("#crewListHead").click(function() {
 	});				
 	function removeHighLightFromCell() {
 		$('.calCell').hover(function(){
-			//:hover color
+			//:hover color on
 	  		$(this).css("color", 'goldenrod');
 		}, function () {
-	  		//not :hover color
+	  		//:hover color off
 	  	$(this).css("color", 'khaki');
 		});
 	}
@@ -328,7 +328,6 @@ $(function() {
 			}
 		}
 		if ((icoun + 1) >= 7 && icounResult(icoun) == true) {
-			alert('icoun work');
 			wCount++;
 		}
 		icoun++;
@@ -338,19 +337,23 @@ $(function() {
 when addCells is end, in results appers many empty <tr>
 it will bee perfect, if I can find bug in cicle
 function at the botton is a temporary solution, I hope...
+idea - mby I should do wCount++ trought function?! ask function, do wCount++ after.
 */
 //temporary solution START
 	$("tr").each(function () { 
-    if ($.trim($(this).text()) == "") {
-       $(this).remove();
-    }
+    	if ($.trim($(this).text()) == "") {
+    	   $(this).remove();
+    	}
 });
 //temporary solution END
 //disabled cells for bottom START
-
-
-let dis = ($("#calCellTabBody").find("tr").length * 7);
-alert(dis);
+	let dis = ($("#calCellTabBody").find("tr").length * 7);
+	dis = (dis - new Date().getDays());
+	dis = (dis - beforeDays());
+	for (let i = 0; i < dis; i++) {
+		let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ (i + 1) +"</button>");
+		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+	}
 
 //disabled cells for bottom END
 });
