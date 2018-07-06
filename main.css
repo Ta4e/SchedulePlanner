@@ -2,6 +2,7 @@
 	font-family: JMH Arkham;
 	src: url(fonts/JMH Arkham.ttf);
 }
+
 #translate {
 	text-decoration: none
 }
@@ -85,6 +86,15 @@
 	color: khaki;
 	text-decoration: none; 	
 }
+.headerButtonsActive  {
+	background: darkslategrey;
+	border-color: darkslategrey;
+	border: none;
+    font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	color: goldenrod;
+	text-decoration: none; 	
+}
 .headerButtons:hover {
 	color: goldenrod;
 }
@@ -166,3 +176,4 @@ ul li {
 	color: lavenderblush;
 	font-size: 25px;
 }
+

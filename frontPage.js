@@ -356,11 +356,8 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 	}
 
 //disabled cells for bottom END
+
 });
-
-
-
-
 /*
 *****GRAVE YARD*****
 *******OF GOOD******
