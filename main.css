@@ -39,7 +39,11 @@
 	height:auto;
 	float:right;
 	background-color: rgba(255,235,205,0.3);
-	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;*/
+	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	position: fixed; 
+    top: 26px; 
+    right: 0;
+
 }
 #crewList h1 {
     padding: 10px;
@@ -61,12 +65,15 @@
 	font-family: JMH Arkham;
 	float: left 20px;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+	position: fixed; 
+    top: 174px; 
+    left: 691px;
 }
 #callBox thead {	
 	font-size: 50px;
 	color: khaki;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-
+	background-color: rgba(0,206,209,0.1);
 }
 .rem {
 	margin-left: 5px;
@@ -111,7 +118,7 @@
 	color: goldenrod;
 }
 .calCell {
-	background-color: rgba(255,228,196,0.1);
+	background-color: rgba(30,144,255,0.2);
 	font-family: JMH Arkham;
 	font-size: 50px;
 	color: khaki;
@@ -124,7 +131,7 @@
 	color: goldenrod;
 }
 .calCellDis {
-	background-color: rgba(255,228,196,0.1);
+	background-color: rgba(0,206,209,0.1);
 	font-family: JMH Arkham;
 	font-size: 50px;
 	color: silver;
@@ -196,7 +203,7 @@ ul li {
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 600px; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -220,11 +227,9 @@ ul li {
 /* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+    animation: animatezoom 0.6s;
 }
-.imgcontainer img {
-	size: 400px 400px
-}
+
 @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)} 
     to {-webkit-transform: scale(1)}
@@ -234,3 +239,100 @@ ul li {
     from {transform: scale(0)} 
     to {transform: scale(1)}
 }
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.loginSubmit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.loginSubmit:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+/*icons bar START*/
+.icon-bar {
+    width: 90px; /* Set a specific width */
+    background-color: #555; /* Dark-grey background */
+  	position: fixed; 
+    top: 500px; 
+    right: 0;
+}
+
+.icon-bar a {
+    display: block; /* Make the links appear below each other instead of side-by-side */
+    text-align: center; /* Center-align text */
+    padding: 16px; /* Add some padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: white; /* White text color */
+    font-size: 36px; /* Increased font-size */
+}
+
+.icon-bar a:hover {
+    background-color: #000; /* Add a hover color */
+}
+
+.active {
+    background-color: #4CAF50; /* Add an active/current color */
+}
+/*icons bar END*/
