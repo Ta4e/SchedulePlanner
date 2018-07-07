@@ -354,9 +354,16 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 		let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ (i + 1) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 	}
-
 //disabled cells for bottom END
+// Get the modal
+var modal = document.getElementById('id01');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 });
 /*
 *****GRAVE YARD*****
