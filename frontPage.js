@@ -1,7 +1,7 @@
 //User operators START
 let u1Day = ['01', 11, 14, 16];
 let u2Day = ['02', 11, 17];
-let u3Day = [20];
+let u3Day = [20, '08'];
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
 let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example');
@@ -315,9 +315,21 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 	}
 //disabled cells for bottom END
+//current day cell STAR
+	function currentDateConvertor() {
+		let currentDayConvert;
+		if (new Date().getDate() < 10) {
+			currentDayConvert = ("0" + new Date().getDate());
+		} else { 
+			currentDayConvert = new Date().getDate();
+		}
+		return currentDayConvert
+	}
+	let currentDayCell = $(".calCell:contains("+ currentDateConvertor() +")");
+	$(currentDayCell).css("backgroundColor", "rgba(255,255,0,0.2)");
+//current day cell END
 // Get the modal
 var modal = document.getElementById('id01');
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -330,27 +342,4 @@ window.onclick = function(event) {
 *******OF GOOD******
 ********IDEAS*******
 *********RIP********
-			if (wDay[icoun]  != "Sun") {
-				if (icoun < 8) {
-					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
-					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-				} else {
-					let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (i + 1) +"</button>");
-					$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-				}
-			}
-    		if (wDay[icoun]  == "Sun") {
-    			if (icoun < 8) {
-    				let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (i + 1)) +"</button>");
-    				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-    				$(calCellTabBody).append(trBody);
-    			} else {
-    				let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (i + 1) +"</button>");
-    				$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-    				$(calCellTabBody).append(trBody);
-    			}
-		wCount++;
-		}
-
-
 */
