@@ -35,6 +35,25 @@ function user(name, midleName,secondName, login, password, day) {
 /**/
 //Onload scripts START
 window.onload = function() {
+//crewList search START
+$("#crewSearch").html("<input type='text' id='crewSearchBar' placeholder='Search matches..'>");
+$("#crewSearchBar").keyup(function(inputSe) {
+    let input, filter, crewDiv, p;
+    input = document.getElementById("crewSearchBar");
+    filter = input.value.toUpperCase();
+    crewDiv = document.getElementById("crewListPersona");
+    p = crewDiv.getElementsByTagName('p');
+    	for (let i = 0; i < p.length; i++) {
+    	    if (p[i].innerText.toUpperCase().indexOf(filter) > -1) {
+    	        p[i].style.display = "";
+    	    } else {
+    	        p[i].style.display = "none";
+    	    }
+    	}
+});
+
+
+//crewList search END
 $('.calCellDis').prop('disabled', true);	
 //CrewList adder START
 /*

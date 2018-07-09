@@ -310,29 +310,18 @@ span.psw {
         width: 100%;
     }
 }
-/*icons bar START*/
-.icon-bar {
-    width: 90px; /* Set a specific width */
-    background-color: #555; /* Dark-grey background */
-  	position: fixed; 
-    top: 500px; 
-    right: 0;
-}
 
-.icon-bar a {
-    display: block; /* Make the links appear below each other instead of side-by-side */
-    text-align: center; /* Center-align text */
-    padding: 16px; /* Add some padding */
-    transition: all 0.3s ease; /* Add transition for hover effects */
-    color: white; /* White text color */
-    font-size: 36px; /* Increased font-size */
-}
 
-.icon-bar a:hover {
-    background-color: #000; /* Add a hover color */
-}
 
-.active {
-    background-color: #4CAF50; /* Add an active/current color */
+
+#crewSearchBar {
+    background-image: url('images/searchIcon.png'); /* Add a search icon to input */
+    background-size: 25px;
+    background-position: 10px 10px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
 }
-/*icons bar END*/
