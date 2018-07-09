@@ -51,8 +51,6 @@ $("#crewSearchBar").keyup(function(inputSe) {
     	    }
     	}
 });
-
-
 //crewList search END
 $('.calCellDis').prop('disabled', true);	
 //CrewList adder START

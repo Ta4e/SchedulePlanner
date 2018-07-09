@@ -311,17 +311,13 @@ span.psw {
     }
 }
 
-
-
-
 #crewSearchBar {
-    background-image: url('images/searchIcon.png'); /* Add a search icon to input */
+    background-image: url('images/searchIcon.png');
     background-size: 25px;
-    background-position: 10px 10px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%; 
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
 }
