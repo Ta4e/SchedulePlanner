@@ -116,7 +116,7 @@ $("#crewListHead").click(function() {
 //From SL START
 	$(function() {
 		$("#add").on("click", function() {
-			let val = $("#upperAdder").val();
+			let val = $("input").val();
 			if (val !== '') {
 				let elem = $("<li></li>").text(val);
 				$(elem).append("<button class='rem'>X</button>");
@@ -342,79 +342,17 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 		}
 		return currentDayConvert
 	}
-
 	let currentDayCell = $(".calCell:contains("+ currentDateConvertor() +")");
 	$(currentDayCell).css("backgroundColor", "rgba(255,255,0,0.2)");
-	// current day cell END
-	// Get the modal LOGIN
-	let modalLogin = document.getElementById('id01');
-	// When the user clicks anywhere outside of the modal, close it
-
-// modal window START
-$(function() {
+//current day cell END
 // Get the modal
-let modal = document.getElementById('modalW');
-
-// Get the button that opens the modal
-let btn = document.getElementById("modalBtn");
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("closeW")[0];
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
+var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-	if (event.target == modalLogin) {
-	     modalLogin.style.display = "none";
-	}
 }
-});
-// modal END
-//get user activity (modal) START
-function uArrtoObj (day) {
-	this.name = name;
-	this.midleName = midleName;
-	this.secondName = secondName;
-	this.login = login;
-	this.password = password;
-	this.day = day;
-}
-$('.users').on("click", function(){
-	  	let uIdFinder = this.id;
-	  	let userNum = (getParse(uIdFinder));
-	  	function getParse(uId) {
-			let result = 0;
-				for (let i = 0; i < uId.length; i++) {
-					let temporaryGetParseCharAt = uId.charAt(i);
-					if (isNaN(temporaryGetParseCharAt) === false) {
-						result = temporaryGetParseCharAt;
-					}
-				}
-			return result;
-		}
-		// let uArr = eval(uIdFinder + 'Day');
-	 	let temConstruct = eval('user' + getParse(uIdFinder));
-	  	alert(temConstruct.day);
-	  	/*
-	  	things i need to do tomorrow
-	  	1. algorithm for adding <p> with single date in modalW
-	  	2. find best solution to collect btrip information, i though objects is good
-	  		solution, it's seems to bee no
-	  	*/
-	});
-
 });
 /*
 *****GRAVE YARD*****

@@ -2,17 +2,18 @@
 	font-family: JMH Arkham;
 	src: url(fonts/JMH Arkham.ttf);
 }
+
 #translate {
 	text-decoration: none
 }
 #upper {
-	width:30%;
-	top: 25.58%;
-	min-height: 492px;
+	height: auto; 
+    width: auto; 
+    overflow: auto;
+    float: left;
+    padding-left: 15px;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-	position: fixed; 
-    left: 0;
 	color: lavenderblush;
 	font-size: 25px;
 }
@@ -34,15 +35,15 @@
 	text-align: center;
 }
 #crewList {
-	width:20%;
-	top: 25.58%;
-	min-height: 492px;
+	width:auto;
+	height:auto;
 	float:right;
-	overflow: auto;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 	position: fixed; 
+    top: 26px; 
     right: 0;
+
 }
 #crewList h1 {
     padding: 10px;
@@ -62,11 +63,11 @@
 }
 #callBox {
 	font-family: JMH Arkham;
-	margin: 0% 5%;
+	float: left 20px;
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 	position: fixed; 
-    top: 25.58%; 
-    left: 30%;
+    top: 174px; 
+    left: 691px;
 }
 #callBox thead {	
 	font-size: 50px;
@@ -139,7 +140,6 @@
 	height: 70px;
 	border-color: rgba(176,196,222,0.2);
 }
-
 * {
 	font-size: 20px;
 	font-family: Verdana, Geneva, sans-serif;
@@ -184,7 +184,7 @@ ul li {
 	font-size: 25px;
 }
 /* The Modal (background) */
-.modalLogin {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -200,10 +200,10 @@ ul li {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: rgb(255,255,255);
+    background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 600px; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -212,7 +212,7 @@ ul li {
     position: absolute;
     right: 25px;
     top: 0; 
-    color: #aaa;
+    color: #000;
     font-size: 35px;
     font-weight: bold;
 }
@@ -220,7 +220,7 @@ ul li {
 /* Close button on hover */
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     cursor: pointer;
 }
 
@@ -256,7 +256,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 .loginSubmit {
-    background-color: rgb(0,139,139);
+    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -274,8 +274,7 @@ input[type=text], input[type=password] {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: rgb(205,92,92);
-    border: none;
+    background-color: #f44336;
 }
 
 /* Center the avatar image inside this container */
@@ -311,6 +310,7 @@ span.psw {
         width: 100%;
     }
 }
+
 #crewSearchBar {
     background-image: url('images/searchIcon.png');
     background-size: 25px;
@@ -320,73 +320,4 @@ span.psw {
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     margin-bottom: 12px;
-}
-/*Modal window*/
-#modalBtn {
-	right: 0;
-	top: 26px;
-	position: fixed;
-	background-color: green;
-	border: none;
-}
-/* The Modal (background) */
-.modalWindow {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    background-size: cover;
-}
-/* Modal Content */
-.modalContent {
-    position: relative;
-    background-color: rgba(47,79,79,0.7);
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.3s
-}
-/* Modal Header */
-.modal-header {
-    padding: 2px 16px;
-    background-color: rgba(0,139,139,0.8);
-    color: white;
-}
-
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
-
-/* Modal Footer */
-.modal-footer {
-    padding: 2px 16px;
-    background-color: rgba(0,139,139,0.8);
-    color: white;
-}
-/* Add Animation */
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-/* The Close Button */
-.closeW {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.closeW:hover,
-.closeW:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
