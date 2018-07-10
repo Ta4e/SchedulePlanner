@@ -2,9 +2,13 @@
 let u1Day = ['01', 11, 14, 16];
 let u2Day = ['02', 11, 17];
 let u3Day = [20, '08'];
+let u4Day = [22, 25, 30];
+let u5Day = [15, 18];
 let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
 let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
-let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example');
+let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example', dayArr(u3Day));
+let user4 = new user('Alexandr', 'Marusin', 'Nikolaevich', 'example', 'example', dayArr(u4Day));
+let user5 = new user('Dalgat', 'Gudaev', 'Muratovich', 'example', 'example', dayArr(u5Day));
 function dayArr(usable) {
 	day = usable;
 return day;
