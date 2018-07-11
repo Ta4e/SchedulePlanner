@@ -1,25 +1,36 @@
+let u1Activity = {
+	'Day01': "PAO Novatek held a world class for Geng Beng Olympic style.",
+	'Day01result':"Not bad! They have a good skill!",
+	'Day11': "PAO Gazprom held a master class for Sebastian Search'n'Found.",
+	'Day11result':"They was not good enough. I felt the lack of practice.",
+	'Day14': "PAO Hookers held a master class for Geng Beng Olympic style.",
+	'Day14result': "They was not bad!",
+	'Day16': "AO Horns and Hooves held a pre-inspection meeting.",
+	'Day16result': "OMFG! There is no company at attached address."	 	 
+}
 //User operators START
 let u1Day = ['01', 11, 14, 16];
 let u2Day = ['02', 11, 17];
 let u3Day = [20, '08'];
 let u4Day = [22, 25, 30];
-let u5Day = [15, 18];
-let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day));
-let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day));
-let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example', dayArr(u3Day));
-let user4 = new user('Alexandr', 'Marusin', 'Nikolaevich', 'example', 'example', dayArr(u4Day));
-let user5 = new user('Dalgat', 'Gudaev', 'Muratovich', 'example', 'example', dayArr(u5Day));
+let u5Day = [];
+let user1 = new user('Stanislav','Smirnov','Nikolaevich','admin','admin', dayArr(u1Day), 'Senior QC Engineer');
+let user2 = new user('Evgenia', 'Kozhukhova', 'Aleksandrovna', 'example', 'example', dayArr(u2Day), 'Lead of BSSaQ');
+let user3 = new user('Evgeniy', 'Abolin', 'Sergeevich', 'example', 'example', dayArr(u3Day), 'Lead of Quality Service');
+let user4 = new user('Alexandr', 'Marusin', 'Nikolaevich', 'example', 'example', dayArr(u4Day), 'Middle QC Enginer Entry Control');
+let user5 = new user('Dalgat', 'Gudaev', 'Muratovich', 'example', 'example', dayArr(u5Day), 'Middle QC Engineer of BBSaQ');
 function dayArr(usable) {
 	day = usable;
 return day;
 }
-function user(name, midleName,secondName, login, password, day) {
+function user(name, midleName,secondName, login, password, day, position) {
 	this.name = name;
 	this.midleName = midleName;
 	this.secondName = secondName;
 	this.login = login;
 	this.password = password;
 	this.day = day;
+	this.position = position;
 }
 //Logic for .CalCell constructor STAR
 	Date.prototype.getDays = function () {
@@ -366,9 +377,9 @@ let btn = document.getElementById("modalBtn");
 let span = document.getElementsByClassName("closeW")[0];
 
 // When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+// btn.onclick = function() {
+//     modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -386,16 +397,16 @@ window.onclick = function(event) {
 }
 });
 // modal END
+/*
+*/
 //get user activity (modal) START
-function uArrtoObj (day) {
-	this.name = name;
-	this.midleName = midleName;
-	this.secondName = secondName;
-	this.login = login;
-	this.password = password;
-	this.day = day;
-}
+let modalCounter = 0;
 $('.users').on("click", function(){
+	if (modalCounter > 0) {
+	  	modalCounter--;
+	  	$(".headerContent").empty();
+	  	$(".bodyContent").empty();
+	 }
 	  	let uIdFinder = this.id;
 	  	let userNum = (getParse(uIdFinder));
 	  	function getParse(uId) {
@@ -410,16 +421,59 @@ $('.users').on("click", function(){
 		}
 		// let uArr = eval(uIdFinder + 'Day');
 	 	let temConstruct = eval('user' + getParse(uIdFinder));
-	  	alert(temConstruct.day);
-	  	/*
-	  	things i need to do tomorrow
-	  	1. algorithm for adding <p> with single date in modalW
-	  	2. find best solution to collect btrip information, i though objects is good
-	  		solution, it's seems to bee no
-	  	*/
+	 	let modal = document.getElementById('modalW');
+	 	let btn = document.getElementById(uIdFinder);
+	 	let span = document.getElementsByClassName("closeW")[0];
+    	modal.style.display = "block";
+		btn.onclick = function() {
+		    modal.style.display = "block";
+		}
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+			if (event.target == modalLogin) {
+			     modalLogin.style.display = "none";
+			}
+		}
+		/* focused user info append to modalW */
+		function modalDate() {
+			let newD = new Date();
+			let result = ('.0' + newD.getMonth() + '.' + newD.getFullYear() + ': '); 
+			return result;
+		}
+			for (; modalCounter < 1; modalCounter++) {
+				$(".headerContent").append("<p class='modalHead'>Crew member info</p>");
+				$(".headerContent").append("<p class='modalHead'>"+ temConstruct.name +
+				 ' ' + temConstruct.midleName + ' - ' + temConstruct.position +"</p>");
+	  			let temporaryDay = Array.from(temConstruct.day);
+	  			function compareNumbers(a, b) {
+  					return a - b;
+				}
+	  			temporaryDay = temporaryDay.sort(compareNumbers)
+	  			for (let i = 0; i < temporaryDay.length; i++) {
+	  				$(".bodyContent").append("<p class='modalBody' id='modalBodyContent"+
+	  				i +"'>"+ (temporaryDay[i] + modalDate()) + eval(uIdFinder + "Activity" +
+	  				 "." + 'Day' + temporaryDay[i]) +"</p>");
+	  				$("#modalBodyContent"+ i + "").append("<p class='modalBody' id='modalBodyContentDescription"+
+	  				i +"'>Description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result')) +"</p>";
+	  				$("#modalBodyContentDescription"+ i +"").append("<hr>");
+	  			// alert(u1Activity.Day11);
+	  			}
+	  		}
+	  	// alert(temConstruct.day);
 	});
-
-});
+/*
+There is some problem I need to solve tomorrow:
+	1. If Day array is empty - Need to create logic for this, what do not bugs
+		- Solve problems on calCell procedure
+		- Solve problem on new User function
+		- Solve problem on modalW, there need to do message (User do not trip at this month yet) 
+*/
+});	
 /*
 *****GRAVE YARD*****
 *******OF GOOD******
