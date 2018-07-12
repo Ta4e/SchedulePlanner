@@ -7,14 +7,18 @@
 }
 #upper {
 	width:30%;
-	top: 25.58%;
-	min-height: 492px;
+	height: 492px;
+    overflow: auto;
 	background-color: rgba(255,235,205,0.3);
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-	position: fixed; 
-    left: 0;
+     position: fixed;
+    top: 50%;
+    right: 105%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 	color: lavenderblush;
 	font-size: 25px;
+    display: inline-block;
 }
 #lang {
 	background-color: darkslategrey;
@@ -25,7 +29,13 @@
 }
 #pName {
 	font-family: JMH Arkham;
-	font-size: 60px;	
+	font-size: 60px;
+    float: left;
+    position: absolute;
+    height: auto;
+    min-width: 70px;
+    border: 2px;
+    margin: 2px; 	
 }
 #headerBox p {
 	font-family: Verdana, Geneva, sans-serif;
@@ -34,7 +44,7 @@
 	text-align: center;
 }
 #crewList {
-	width:20%;
+/*	width:20%;
 	top: 25.58%;
 	min-height: 492px;
 	float:right;
@@ -43,6 +53,21 @@
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 	position: fixed; 
     right: 0;
+this is a old solution, delete on relise
+*/
+    width:30%;
+    height: 492px;
+    overflow: auto;
+    background-color: rgba(255,235,205,0.3);
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    position: fixed;
+    top: 50%;
+    right: 35%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: lavenderblush;
+    font-size: 25px;
+    display: inline-block;
 }
 #crewList h1 {
     padding: 10px;
@@ -62,11 +87,27 @@
 }
 #callBox {
 	font-family: JMH Arkham;
-	margin: 0% 5%;
+	/*margin: 5% 5% 5%;*/
 	text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-	position: fixed; 
-    top: 25.58%; 
-    left: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+#informer {
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    position: fixed;
+    top: 26px;
+    right: 0px;
+    width: 30%;
+    height: auto;
+    display: inline-block;
+    background-color: rgba(255,235,205,0.3); 
+    color: lavenderblush;
+    font-size: 25px;
+    text-align: center;
 }
 #callBox thead {	
 	font-size: 50px;
@@ -128,6 +169,7 @@
 	width: 70px;
 	height: 70px;
 	border-color: rgba(176,196,222,0.2);
+    display: table-cell;
 }
 .calCell:hover {
 	color: goldenrod;
@@ -159,6 +201,7 @@ header {
 body {
 	background-image: url(images/bodyImg.jpg);
  	background-size: cover;
+    overflow: auto;
 }
 footer {
 	position: fixed;
@@ -394,4 +437,35 @@ span.psw {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+/*ICON ANIMATION*/
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
 }

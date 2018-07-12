@@ -1,13 +1,17 @@
 let u1Activity = {
-	'Day01': "PAO Novatek held a world class for Geng Beng Olympic style.",
-	'Day01result':"Not bad! They have a good skill!",
-	'Day11': "PAO Gazprom held a master class for Sebastian Search'n'Found.",
-	'Day11result':"They was not good enough. I felt the lack of practice.",
-	'Day14': "PAO Hookers held a master class for Geng Beng Olympic style.",
-	'Day14result': "They was not bad!",
-	'Day16': "AO Horns and Hooves held a pre-inspection meeting.",
-	'Day16result': "OMFG! There is no company at attached address."	 	 
-}
+	'Day01': "Example company",
+	'Day01result':"Pre-inspection meeting",
+	'Day11': "Example company",
+	'Day11result':"Prime audit",
+	'Day14': "Example company",
+	'Day14result': "Operating control",
+	'Day16': "Example company",
+	'Day16result': "Acceptance control"	 	 
+};
+let u2Activity = {};
+let u3Activity = {};
+let u4Activity = {};
+let u5Activity = {};
 //User operators START
 let u1Day = ['01', 11, 14, 16];
 let u2Day = ['02', 11, 17];
@@ -422,10 +426,10 @@ $('.users').on("click", function(){
 		// let uArr = eval(uIdFinder + 'Day');
 	 	let temConstruct = eval('user' + getParse(uIdFinder));
 	 	let modal = document.getElementById('modalW');
-	 	let btn = document.getElementById(uIdFinder);
+	 	let trigger = document.getElementById(uIdFinder);
 	 	let span = document.getElementsByClassName("closeW")[0];
     	modal.style.display = "block";
-		btn.onclick = function() {
+		trigger.onclick = function() {
 		    modal.style.display = "block";
 		}
 		span.onclick = function() {
@@ -449,23 +453,35 @@ $('.users').on("click", function(){
 				$(".headerContent").append("<p class='modalHead'>Crew member info</p>");
 				$(".headerContent").append("<p class='modalHead'>"+ temConstruct.name +
 				 ' ' + temConstruct.midleName + ' - ' + temConstruct.position +"</p>");
-	  			let temporaryDay = Array.from(temConstruct.day);
+	  			let temporaryDay;
+	  			if (temConstruct.day.length > 0) {
+	  					temporaryDay = Array.from(temConstruct.day);
+	  			} else {
+	  				$(".bodyContent").append("<p class='modalBody' id='modalBodyContentNoAction'>No action in this month yet!</p>");
+	  				modalCounter++;
+	  			}
 	  			function compareNumbers(a, b) {
   					return a - b;
 				}
-	  			temporaryDay = temporaryDay.sort(compareNumbers)
 	  			for (let i = 0; i < temporaryDay.length; i++) {
-	  				$(".bodyContent").append("<p class='modalBody' id='modalBodyContent"+
-	  				i +"'>"+ (temporaryDay[i] + modalDate()) + eval(uIdFinder + "Activity" +
-	  				 "." + 'Day' + temporaryDay[i]) +"</p>");
-	  				$("#modalBodyContent"+ i + "").append("<p class='modalBody' id='modalBodyContentDescription"+
-	  				i +"'>Description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result')) +"</p>";
-	  				$("#modalBodyContentDescription"+ i +"").append("<hr>");
+	  				if(temporaryDay.length > 0) {   
+   					// not empty 
+   						temporaryDay = temporaryDay.sort(compareNumbers)
+   							$(".bodyContent").append("<p class='modalBody' id='modalBodyContent"+
+	  						i +"'>"+ (temporaryDay[i] + modalDate()) + eval(uIdFinder + "Activity" +
+	  						 "." + 'Day' + temporaryDay[i]) +"</p>");
+	  						$("#modalBodyContent"+ i + "").append("<p class='modalBody' id='modalBodyContentDescription"+
+	  						i +"'>Short description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result')) +"</p>";
+	  						$("#modalBodyContentDescription"+ i +"").append("<hr>");
+					}
 	  			// alert(u1Activity.Day11);
 	  			}
 	  		}
 	  	// alert(temConstruct.day);
 	});
+function myFunction(x) {
+    x.classList.toggle("change");
+}
 /*
 There is some problem I need to solve tomorrow:
 	1. If Day array is empty - Need to create logic for this, what do not bugs
