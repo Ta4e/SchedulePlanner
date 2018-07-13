@@ -49,6 +49,7 @@ function user(name, midleName,secondName, login, password, day, position) {
 				alert(getWeekDay(date));
 			});
 	});
+
 //Logic for .CalCell constructor END
 //Users operators END
 /**/
@@ -389,7 +390,6 @@ let span = document.getElementsByClassName("closeW")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -479,9 +479,40 @@ $('.users').on("click", function(){
 	  		}
 	  	// alert(temConstruct.day);
 	});
-function myFunction(x) {
-    x.classList.toggle("change");
-}
+/*
+Animated btn for pop-up list START
+*/
+	
+	$(function() {
+		$("#crew").bind("click", function() {
+		for (let i = 0; i < 5; i++) {
+			let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>");
+			$(popBtn).append("<div class='bar1' id='bar1'></div>",
+				"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
+			$("#upper").append(popBtn);
+		}
+		});
+	});
+		$("#crew").delegate("click", ".containerPopUp", function() {
+			alert("Work");
+		});
+
+	// $('parent_static').on('event', 'children_dinamic', handler);
+
+			// $("#upper").append(
+			// 	$('<div/>',{
+   //  			id: 'popUpBtn',
+   //  			class: 'popBtn',
+   //  			title: 'Pop-Up',
+   //  			onclick: "animatePopUpBtn(this)"
+			// }).appendTo('#popUpBtn'));
+			// $("#popUpBtn").append("<div class='bar1' id='bar1'></div>","<div class='bar2' id='bar2'></div>",
+  	// 			"<div class='bar3' id='bar3'></div>");
+			// });
+
+/*
+Animated btn for pop-up list END
+*/
 /*
 There is some problem I need to solve tomorrow:
 	1. If Day array is empty - Need to create logic for this, what do not bugs
@@ -490,6 +521,7 @@ There is some problem I need to solve tomorrow:
 		- Solve problem on modalW, there need to do message (User do not trip at this month yet) 
 */
 });	
+
 /*
 *****GRAVE YARD*****
 *******OF GOOD******
