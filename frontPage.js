@@ -485,17 +485,17 @@ Animated btn for pop-up list START
 	
 	$(function() {
 		$("#crew").bind("click", function() {
-		for (let i = 0; i < 5; i++) {
-			let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>");
-			$(popBtn).append("<div class='bar1' id='bar1'></div>",
-				"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
-			$("#upper").append(popBtn);
-		}
+			for (let i = 0; i < 5; i++) {
+				let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>").on("click", function() {
+					alert(this.id);
+    						this.classList.toggle("change");
+				});
+				$(popBtn).append("<div class='bar1' id='bar1'></div>",
+					"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
+				$("#upper").append(popBtn);
+			}
 		});
 	});
-		$("#crew").delegate("click", ".containerPopUp", function() {
-			alert("Work");
-		});
 
 	// $('parent_static').on('event', 'children_dinamic', handler);
 
