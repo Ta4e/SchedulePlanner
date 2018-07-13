@@ -435,14 +435,14 @@ $('.users').on("click", function(){
 		span.onclick = function() {
 		    modal.style.display = "none";
 		}
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-			if (event.target == modalLogin) {
-			     modalLogin.style.display = "none";
-			}
-		}
+		// window.onclick = function(event) {
+		//     if (event.target == modal) {
+		//         modal.style.display = "none";
+		//     }
+		// 	if (event.target == modalLogin) {
+		// 	     modalLogin.style.display = "none";
+		// 	}
+		// }
 		/* focused user info append to modalW */
 		function modalDate() {
 			let newD = new Date();
