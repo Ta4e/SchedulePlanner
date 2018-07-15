@@ -184,6 +184,7 @@ this is a old solution, delete on relise
 	height: 70px;
 	border-color: rgba(176,196,222,0.2);
 }
+
 * {
 	font-size: 20px;
 	font-family: Verdana, Geneva, sans-serif;
@@ -412,10 +413,7 @@ span.psw {
 }
 
 /* Modal Body */
-.modal-body {
-    padding: 2px 16px;
-    display: block;
-}
+.modal-body {padding: 2px 16px;}
 
 /* Modal Footer */
 .modal-footer {
@@ -475,10 +473,13 @@ span.psw {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
+<<<<<<< HEAD
 }
 .modalBody span {
     display: inline-block;
     top: 0px;
     right: 0px;
     margin-left: 75%;
+=======
+>>>>>>> parent of cd9d65c... popUpBtn n conent
 }
