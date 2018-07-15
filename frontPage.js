@@ -365,10 +365,10 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 
 	let currentDayCell = $(".calCell:contains("+ currentDateConvertor() +")");
 	$(currentDayCell).css("backgroundColor", "rgba(255,255,0,0.2)");
-	// current day cell END
-	// Get the modal LOGIN
+// current day cell END
+// Get the modal LOGIN
 	let modalLogin = document.getElementById('id01');
-	// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it
 
 // modal window START
 $(function() {
@@ -466,12 +466,24 @@ $('.users').on("click", function(){
 	  			for (let i = 0; i < temporaryDay.length; i++) {
 	  				if(temporaryDay.length > 0) {   
    					// not empty 
-   						temporaryDay = temporaryDay.sort(compareNumbers)
+   						temporaryDay = temporaryDay.sort(compareNumbers);
+   						let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>").on("click", function() {
+							alert(this.id);
+    					this.classList.toggle("change");
+						});
+						$(popBtn).append("<div class='bar1' id='bar1'></div>",
+							"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
+						let spanPop = $("<span id='spanPop"+ i +"' class='spanPop'></span>");
+						$(spanPop).append(popBtn);
+
    							$(".bodyContent").append("<p class='modalBody' id='modalBodyContent"+
 	  						i +"'>"+ (temporaryDay[i] + modalDate()) + eval(uIdFinder + "Activity" +
-	  						 "." + 'Day' + temporaryDay[i]) +"</p>");
+	  						 "." + 'Day' + temporaryDay[i]) + "</p>");
+
+   							$("#modalBodyContent"+ i + "").append(spanPop);
+	  						
 	  						$("#modalBodyContent"+ i + "").append("<p class='modalBody' id='modalBodyContentDescription"+
-	  						i +"'>Short description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result')) +"</p>";
+	  						i +"'>Short description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result') + "</p>");
 	  						$("#modalBodyContentDescription"+ i +"").append("<hr>");
 					}
 	  			// alert(u1Activity.Day11);
@@ -483,33 +495,19 @@ $('.users').on("click", function(){
 Animated btn for pop-up list START
 */
 	
-	$(function() {
-		$("#crew").bind("click", function() {
-			for (let i = 0; i < 5; i++) {
-				let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>").on("click", function() {
-					alert(this.id);
-    						this.classList.toggle("change");
-				});
-				$(popBtn).append("<div class='bar1' id='bar1'></div>",
-					"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
-				$("#upper").append(popBtn);
-			}
-		});
-	});
-
-	// $('parent_static').on('event', 'children_dinamic', handler);
-
-			// $("#upper").append(
-			// 	$('<div/>',{
-   //  			id: 'popUpBtn',
-   //  			class: 'popBtn',
-   //  			title: 'Pop-Up',
-   //  			onclick: "animatePopUpBtn(this)"
-			// }).appendTo('#popUpBtn'));
-			// $("#popUpBtn").append("<div class='bar1' id='bar1'></div>","<div class='bar2' id='bar2'></div>",
-  	// 			"<div class='bar3' id='bar3'></div>");
-			// });
-
+	// $(function() {
+	// 	$("#crew").bind("click", function() {
+	// 		for (let i = 0; i < 5; i++) {
+	// 			let popBtn = $("<div id='testBtn"+ i +"' class='containerPopUp'></div>").on("click", function() {
+	// 				alert(this.id);
+ //    						this.classList.toggle("change");
+	// 			});
+	// 			$(popBtn).append("<div class='bar1' id='bar1'></div>",
+	// 				"<div class='bar2' id='bar2'></div>", "<div class='bar3' id='bar3'></div>");
+	// 			$("#upper").append(popBtn);
+	// 		}
+	// 	});
+	// });
 /*
 Animated btn for pop-up list END
 */
@@ -517,8 +515,6 @@ Animated btn for pop-up list END
 There is some problem I need to solve tomorrow:
 	1. If Day array is empty - Need to create logic for this, what do not bugs
 		- Solve problems on calCell procedure
-		- Solve problem on new User function
-		- Solve problem on modalW, there need to do message (User do not trip at this month yet) 
 */
 });	
 
