@@ -281,14 +281,14 @@ $(function() {
 		} 
 	}
 	function inFirstRow() {
-			let result = Math.abs(7 - beforeDays());
+			let result = (7 - beforeDays());
 			return result;
 	}
 //do disabled cells
 		$("#calCellTabBody").append(getTr());
-			let lastDayPastMonth = new Date;
-			lastDayPastMonth.setDate(0);
-			let x = lastDayPastMonth.getDate();
+			let w = new Date;
+			w.setDate(0);
+			let x = w.getDate();
 			x = (x - (beforeDays() - inFirstRow()));
 		for (let i = 0; i < beforeDays(); i++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ x +"</button>");
