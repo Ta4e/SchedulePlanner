@@ -289,21 +289,22 @@ $(function() {
 			let lastDayPastMonth = new Date;
 			lastDayPastMonth.setDate(0);
 			let x = lastDayPastMonth.getDate();
-			x = (x - (beforeDays() - inFirstRow()));
-		for (let i = 0; i < beforeDays(); i++) {
+			x = (x - inFirstRow() + 1);
+		for (let i = 0; i < inFirstRow(); i++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ x +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 			x++;
 		}	
-		for (let z = 0; z < inFirstRow(); z++) {
+		let daysInFirstRow = (7 - inFirstRow());
+		for (let z = 0; z < daysInFirstRow; z++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 			wCount = (wCount + 1);
 		}
 //do disabled cells END
 //do calCell START
-	let icoun = inFirstRow();
-	for (let i = 0; i < (new Date().getDays() - inFirstRow()); i++) {
+	let icoun = daysInFirstRow;
+	for (let i = 0; i < (new Date().getDays() - daysInFirstRow); i++) {
 		function getCurDay(x) {
 			let counter = (x + 1);
 			if (counter < 10) {
@@ -313,8 +314,9 @@ $(function() {
 				return counter;
 			}
 		}	
-		$("#calCellTabBody").append(getTr());
-		let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (getCurDay(i + inFirstRow())) +"</button>");
+		$("#calCellTabBody").append(getTr()); //this one is getting empty <tr>. While this is in circle, it's append empty <tr>
+		//try to move this outside the circle For
+		let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (getCurDay(i + daysInFirstRow)) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 		function icounResult(counter) { //function results is how many week (with append) in this month
 			let icounRes = [1, 2, 3, 4, 5, 6];
@@ -346,7 +348,7 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 //disabled cells for bottom START
 	let dis = ($("#calCellTabBody").find("tr").length * 7);
 	dis = (dis - new Date().getDays());
-	dis = (dis - beforeDays());
+	dis = (dis - inFirstRow());
 	for (let i = 0; i < dis; i++) {
 		let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ (i + 1) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
