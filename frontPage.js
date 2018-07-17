@@ -218,9 +218,13 @@ $("#crewListHead").click(function() {
 dynamic calCell add START
 */
 function getWeekDay(date) {
-    let nDays = date.getDate();
-    let day = (date.getDay() + 1);
-    return nDays - day;
+    // let nDays = date.getDate();
+    // let day = (date.getDay() + 1);
+    let currentYear = date.getFullYear();
+	let currentMonth = date.getMonth();
+	let x = new Date(currentYear, currentMonth, 0);
+	let result = x.getDay();
+    return result;
 }
 function switchWday(day) {
 	switch (day) {
@@ -276,26 +280,27 @@ $(function() {
 			return result;
 		} 
 		if (getWeekDay(date) > 0) {
-			let result = (getWeekDay(date) - 1);
+			let result = getWeekDay(date);
 			return result;
 		} 
 	}
-	function inFirstRow() {
-			let result = Math.abs(7 - beforeDays());
-			return result;
-	}
+	// function inFirstRow() {
+	// 		let result = Math.abs(7 - beforeDays());
+	// 		return result;
+	// }
 //do disabled cells
 		$("#calCellTabBody").append(getTr());
 			let lastDayPastMonth = new Date;
 			lastDayPastMonth.setDate(0);
 			let x = lastDayPastMonth.getDate();
-			x = (x - inFirstRow() + 1);
-		for (let i = 0; i < inFirstRow(); i++) {
+			x = (x - beforeDays() + 1);
+			let firstCalCellRow = beforeDays();
+		for (let i = 0; i < firstCalCellRow; i++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ x +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
 			x++;
 		}	
-		let daysInFirstRow = (7 - inFirstRow());
+		let daysInFirstRow = (7 - beforeDays());
 		for (let z = 0; z < daysInFirstRow; z++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
@@ -348,7 +353,7 @@ idea - mby I should do wCount++ trought function?! ask function, do wCount++ aft
 //disabled cells for bottom START
 	let dis = ($("#calCellTabBody").find("tr").length * 7);
 	dis = (dis - new Date().getDays());
-	dis = (dis - inFirstRow());
+	dis = (dis - beforeDays());
 	for (let i = 0; i < dis; i++) {
 		let tbodyIns = $('<td></td>').append("<button class='calCellDis'>"+ (i + 1) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
