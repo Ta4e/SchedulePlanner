@@ -493,10 +493,8 @@ $('.users').on("click", function(){
 	  						i +"'>Short description: "+ eval(uIdFinder + "Activity" + "." + 'Day' + temporaryDay[i] + 'result') + "</p>");
 	  						$("#modalBodyContentDescription"+ i +"").append("<hr>");
 					}
-	  			// alert(u1Activity.Day11);
 	  			}
 	  		}
-	  	// alert(temConstruct.day);
 	});
 /*
 Animated btn for pop-up list START
@@ -523,6 +521,7 @@ There is some problem I need to solve tomorrow:
 	1. If Day array is empty - Need to create logic for this, what do not bugs
 		- Solve problems on calCell procedure
 */
+
 });	
 
 /*
