@@ -8,7 +8,7 @@ img {
   width: 100%;
 }
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+.slideImgContainer {
   position: relative;
   width: 78%;
   height: 40%;
@@ -18,7 +18,7 @@ img {
 }
 
 /* Hide the images by default */
-.mySlides {
+.imgSlides {
   display: none;
 }
 
@@ -28,8 +28,8 @@ img {
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.imgSlidesPrev,
+.imgSlidesNext {
   cursor: pointer;
   position: absolute;
   top: 40%;
@@ -52,8 +52,8 @@ img {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
+.imgSlidesPrev:hover,
+.imgSlidesNext:hover {
   background-color: rgba(0, 0, 0, 0.8);
   color: goldenrod;
 }
