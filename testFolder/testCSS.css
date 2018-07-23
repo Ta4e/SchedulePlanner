@@ -1,102 +1,93 @@
-/*
-imgGalery START
-*/
-* {
-  box-sizing: border-box;
-}
-img {
-  width: 100%;
-}
-/* Position the image container (needed to position the left and right arrows) */
-.slideImgContainer {
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
   position: relative;
-  width: 78%;
-  top: 0px;
   margin: auto;
-  padding: 0;
-  background-color: rgba(47,79,79,0.7);
 }
 
 /* Hide the images by default */
-.imgSlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
+.mySlides {
+    display: none;
 }
 
 /* Next & previous buttons */
-.imgSlidesPrev,
-.imgSlidesNext {
+.prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
+  margin-top: -22px;
   padding: 16px;
-  margin-top: -50px;
-  color: khaki;
+  color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-  background-color: rgba(47,79,79,0.4);
 }
 
 /* Position the "next button" to the right */
-.imgSlidesNext {
+.next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.imgSlidesPrev:hover,
-.imgSlidesNext:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: goldenrod;
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: khaki;
-  font-size: 20px;
-  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  color: #f2f2f2;
+  font-size: 12px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
 }
 
-/* Container for image text */
-.caption-container {
-  text-align: center;
-/*  background-color: rgba(47,79,79,0.7);*/
-  color: khaki;
-  font-size: 20px;
-  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-  padding: 2px 16px;
-  color: white;
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.active, .dot:hover {
+  background-color: #717171;
 }
 
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
-.active,
-.demo:hover {
-  opacity: 1;
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
