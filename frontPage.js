@@ -304,8 +304,9 @@ $(function() {
 		for (let z = 0; z < daysInFirstRow; z++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-			wCount = (wCount + 1);
+			
 		}
+		wCount = (wCount + 1);
 //do disabled cells END
 //do calCell START
 	let icoun = daysInFirstRow;
