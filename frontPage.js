@@ -304,12 +304,12 @@ $(function() {
 		for (let z = 0; z < daysInFirstRow; z++) {
 			let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ ("0" + (z + 1)) +"</button>");
 			$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
-			
 		}
 		wCount = (wCount + 1);
 //do disabled cells END
 //do calCell START
 	let icoun = daysInFirstRow;
+	let daysInWeekAdd = 0;
 	for (let i = 0; i < (new Date().getDays() - daysInFirstRow); i++) {
 		function getCurDay(x) {
 			let counter = (x + 1);
@@ -324,6 +324,7 @@ $(function() {
 		//try to move this outside the circle For
 		let tbodyIns = $('<td></td>').append("<button class='calCell'>"+ (getCurDay(i + daysInFirstRow)) +"</button>");
 		$("#calCellTabTrBody"+ wCount +"").append(tbodyIns);
+		daysInWeekAdd++;
 		function icounResult(counter) { //function results is how many week (with append) in this month
 			let icounRes = [1, 2, 3, 4, 5, 6];
 			for (let z = 0; z < icounRes.length; z++) {
@@ -332,7 +333,7 @@ $(function() {
 				}
 			}
 		}
-		if ((icoun + 1) >= 7 && icounResult(icoun) == true) {
+		if ((icoun + 1) >= 7 && icounResult(daysInWeekAdd) == true) {
 			wCount++;
 		}
 		icoun++;
